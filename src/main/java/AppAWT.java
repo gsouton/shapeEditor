@@ -18,9 +18,10 @@ public class AppAWT {
 
         Shape shape = factoryAWT.createRectangle(100, 100, 50, 50);
 
-        Shape shape2 = shape.clone();
-
         shape = factoryAWT.createBorder(shape);
+
+        Shape shape2 = shape.clone();
+        
         // shape = factoryAWT.createBorder(shape);
         shape.translate(new Point2D.Double(200, 300));
         shape.scale(2);

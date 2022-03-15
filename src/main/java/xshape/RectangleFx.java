@@ -20,17 +20,17 @@ public class RectangleFx implements Shape {
         grp.getChildren().add(_shape);
     }
 
-    // public RectangleFx(RectangleFx rectangle) {
-    // _pos = rectangle.position();
-    // _size = rectangle.size();
-    // _shape = new Rectangle();
-    // _shape.setX(rectangle._pos.getX());
-    // _shape.setY(rectangle._pos.getY());
-    // _shape.setWidth(rectangle._size.getX());
-    // _shape.setHeight(rectangle._size.getY());
-    // _grp = rectangle._grp;
-    // rectangle._grp.getChildren().add(_shape);
-    // }
+    public RectangleFx(RectangleFx rectangle) {
+        _pos = rectangle.position();
+        _size = rectangle.size();
+        _shape = new Rectangle();
+        _shape.setX(rectangle._pos.getX());
+        _shape.setY(rectangle._pos.getY());
+        _shape.setWidth(rectangle._size.getX());
+        _shape.setHeight(rectangle._size.getY());
+        _grp = rectangle._grp;
+        rectangle._grp.getChildren().add(_shape);
+    }
 
     @Override
     public void draw() {

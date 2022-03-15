@@ -7,11 +7,27 @@ import java.awt.geom.Point2D;
 
 public class BorderShapeFx extends ShapeDecorator {
     Circle _circle = new Circle();
+    private Group _grp;
+    Shape shape;
 
-    public BorderShapeFx(Shape _shape, Group grp) {
-        super(_shape);
+    public BorderShapeFx(Shape shape, Group grp) {
+        super(shape);
+        this.shape = shape;
+        _grp = grp;
         grp.getChildren().add(_circle);
     }
+
+    public BorderShapeFx(Shape shape, Circle circle, Group grp){
+        super(shape);
+        _circle = new Circle();
+        _circle.setCenterX(circle.getCenterX());
+        _circle.setCenterY(circle.getCenterY());
+        _circle.setRadius(circle.getRadius());
+        _grp = grp;
+        _grp.getChildren().add(_circle);
+    }
+
+
 
     @Override
     public void draw() {
@@ -34,7 +50,8 @@ public class BorderShapeFx extends ShapeDecorator {
 
     @Override
     public BorderShapeFx clone() {
-        return (BorderShapeFx) super.clone();
+        Shape shape = this.shape.clone();
+        return new BorderShapeFx(shape, _circle, _grp);
     }
 
 }

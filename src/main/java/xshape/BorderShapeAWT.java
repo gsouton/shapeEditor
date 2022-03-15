@@ -11,11 +11,19 @@ import java.awt.Shape;
  * BorderShapeAWT
  */
 public class BorderShapeAWT extends ShapeDecorator {
-    private Shape _circle;
+    private Ellipse2D _circle = new Ellipse2D.Double();
     private AWTCanvas _canvas;
+    private xshape.Shape _shape;
 
-    public BorderShapeAWT(xshape.Shape _shape, AWTCanvas canvas) {
-        super(_shape);
+    public BorderShapeAWT(xshape.Shape shape, AWTCanvas canvas) {
+        super(shape);
+        _shape = shape;
+        _canvas = canvas;
+    }
+
+    public BorderShapeAWT(xshape.Shape shape, Ellipse2D circle, AWTCanvas canvas){
+        super(shape);
+        _circle = new Ellipse2D.Double(circle.getCenterX(), circle.getCenterY(), circle.getWidth(), circle.getHeight());
         _canvas = canvas;
     }
 
@@ -36,6 +44,11 @@ public class BorderShapeAWT extends ShapeDecorator {
         Point2D s = super.size();
         double s2 = Math.max(s.getX() * Math.sqrt(2), s.getY() * Math.sqrt(2));
         return new Point2D.Double(s2, s2);
+    }
+
+    public BorderShapeAWT clone(){
+        xshape.Shape shape = _shape.clone();
+        return new BorderShapeAWT(shape, _circle, _canvas);
     }
 
 }

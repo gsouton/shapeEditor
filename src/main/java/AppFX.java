@@ -23,10 +23,12 @@ public class AppFX extends Application {
 
         Shape shape = factoryFX.createRectangle(225, 225, 50, 50);
         shape.rotate(45);
-        Shape shape2 = shape.clone();
+        
 
         shape = factoryFX.createBorder(shape);
         shape = factoryFX.createBorder(shape);
+
+        Shape shape2 = shape.clone();
         // shape.scale(2);
         //
         shape.translate(new Point2D.Double(-50, 70));
@@ -35,6 +37,7 @@ public class AppFX extends Application {
 
         shape.draw();
         shape2.draw();
+
         primaryStage.setScene(scene);
         primaryStage.show();
 
