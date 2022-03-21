@@ -17,13 +17,12 @@ public class BorderShapeAwt extends Border {
         g.setColor(java.awt.Color.BLACK);
         double r = (Math.max(s.getX() * Math.sqrt(2), s.getY() * Math.sqrt(2)));
 
-        g.drawOval((int) (p.getX() - r/2),
-                (int) (p.getY() - r/2),
+        g.drawOval((int) (p.getX() - r / 2),
+                (int) (p.getY() - r / 2),
                 (int) (r),
                 (int) (r));
         g.setColor(c);
         super.draw();
     }
-
 
 }
